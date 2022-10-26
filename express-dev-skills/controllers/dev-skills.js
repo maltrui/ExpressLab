@@ -3,7 +3,10 @@ const DevSkill = require('../models/dev-skills')
 
  module.exports = {
     index,
-    show
+    show,
+    new: newDevSkill,
+    create,
+    delete: deleteOne
   };
   
   function index(req, res) {
@@ -15,4 +18,18 @@ const DevSkill = require('../models/dev-skills')
     res.render('dev-skills/show', {
       devSkills: DevSkill.getOne(req.params.id),
     });
+  }
+
+  function newDevSkill(req, res){ 
+    res.render('dev-skills/new')
+  }
+
+  function create(req, res){
+    DevSkill.create(req.body)
+    res.redirect('/dev-skills')
+  }
+
+  function deleteOne(req, res){
+    DevSkill.deleteOneSkill(req.params.id)
+    res.redirect('/dev-skills')
   }

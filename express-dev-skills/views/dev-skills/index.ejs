@@ -3,18 +3,38 @@
   <head>
     <title>Express Dev-Skills</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+    .delete-form {
+        display: inline-block;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+          
+    .delete-form button {
+        color: red;
+      }
+          
+    li {
+        list-style: none;
+      }
+    </style>
   </head>
   <body>
     <h1>Dev-Skills</h1>
     <ul>
       <% devSkills.forEach(function(t) { %>
         <li>
+            <form action="/dev-skills/<%= t.id %>?_method=DELETE"
+                class="delete-form" method="POST">
+                <button type="submit">X</button>
+            </form>
           <a href="/dev-skills/<%= t.id %>"><%= t.skill %></a>
             - 
           <%= t.learn ? 'I have learned this skill successfully' : 'I am working on this skill still!' %>
         </li>
       <% }); %>
     </ul>
+    <a href="/dev-skills/new">Add new Skills</a>
   </body>
 
 </html>

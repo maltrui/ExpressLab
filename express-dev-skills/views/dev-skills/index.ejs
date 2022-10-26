@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Express Dev-Skills</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Dev-Skills</h1>
+    <ul>
+      <% devSkills.forEach(function(t) { %>
+        <li>
+          <a href="/dev-skills/<%= t.id %>"><%= t.skill %></a>
+            - 
+          <%= t.learn ? 'I have learned this skill successfully' : 'I am working on this skill still!' %>
+        </li>
+      <% }); %>
+    </ul>
+  </body>
+
+</html>

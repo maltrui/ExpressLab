@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Dev-Skill</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Edit Dev-Skill</h1>
+    <form action="/dev-skills/<%= devSkills.id %>?_method=PUT" method="POST" autocomplete = 'off'>
+      <Label for = 'skillName'> Dev Skill:</label>
+      <input id = 'skillName' type="text" placeholder= '<%= devSkills.skill %>' name="skill" value = '<%= devSkills.skill %>'>
+      <Label for = 'skillLearned'> Have I learned it?</label>
+        <input id = 'skillLearned' type="text" placeholder= '<%= devSkills.learn %>' name="learn" value = '<%= devSkills.learn %>'>
+      <button type="submit">Edit Skill</button>
+    <form>
+
+    </form>
+  </body>
+
+</html>

@@ -6,7 +6,9 @@ const DevSkill = require('../models/dev-skills')
     show,
     new: newDevSkill,
     create,
-    delete: deleteOne
+    delete: deleteOne,
+    edit,
+    update
   };
   
   function index(req, res) {
@@ -33,3 +35,21 @@ const DevSkill = require('../models/dev-skills')
     DevSkill.deleteOneSkill(req.params.id)
     res.redirect('/dev-skills')
   }
+
+  function edit(req, res){
+    res.render('dev-skills/edit', {
+        devSkills: DevSkill.getOne(req.params.id) 
+    })
+  }
+
+  function update(req,res){
+    DevSkill.updateOne(req.params.id, req.body)
+    
+    //req.body.id = req.params.id
+    //DevSkill.updateOne(req.body)
+    res.redirect('/dev-skills/' + req.params.id)
+
+  }
+
+
+

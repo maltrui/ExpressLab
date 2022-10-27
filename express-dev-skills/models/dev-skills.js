@@ -9,7 +9,8 @@ const devSkills = [
     getAll,
     getOne,
     create,
-    deleteOneSkill
+    deleteOneSkill,
+    updateOne
   };
   
   function getAll() {
@@ -24,7 +25,6 @@ const devSkills = [
     newDevSkill.id = Date.now() % 100000
     newDevSkill.learn = false
     devSkills.push(newDevSkill)
-    console.log(devSkills)
   }
 
   function deleteOneSkill(id){
@@ -32,3 +32,11 @@ const devSkills = [
     const idx = devSkills.findIndex(skill => skill.id === id);
     devSkills.splice(idx, 1);
   }
+
+  function updateOne(id, devSkill){
+    const foundDevSkill = devSkills.find(skill => skill.id === parseInt(id))
+    foundDevSkill.skill = devSkill.skill
+    foundDevSkill.learn = devSkill.learn !== 'false'
+    
+  }
+  

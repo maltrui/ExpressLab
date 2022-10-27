@@ -8,7 +8,8 @@ const DevSkill = require('../models/dev-skills')
     create,
     delete: deleteOne,
     edit,
-    update
+    update,
+    homePage
   };
   
   function index(req, res) {
@@ -44,11 +45,12 @@ const DevSkill = require('../models/dev-skills')
 
   function update(req,res){
     DevSkill.updateOne(req.params.id, req.body)
-    
-    //req.body.id = req.params.id
-    //DevSkill.updateOne(req.body)
     res.redirect('/dev-skills/' + req.params.id)
 
+  }
+
+  function homePage(req, res){
+    res.redirect('/')
   }
 
 

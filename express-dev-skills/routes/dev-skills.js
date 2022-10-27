@@ -4,6 +4,7 @@ var router = express.Router();
 const devSkillController = require('../controllers/dev-skills')
 
 router.get('/', devSkillController.index);
+router.get('/', devSkillController.homePage)
 router.get('/new', devSkillController.new);
 router.get('/:id', devSkillController.show);
 router.get('/:id/edit', devSkillController.edit)
